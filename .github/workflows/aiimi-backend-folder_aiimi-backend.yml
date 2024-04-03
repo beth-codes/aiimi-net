@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy ASP.Net Core app to Azure Web App - aiimi-backend
 
 on:
@@ -52,9 +55,6 @@ jobs:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7361B9D0DD354E66805A97F8D4896486 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B5A49D629F2140B5806657082BF9CF77 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F0BFE399A6CB43E39390D4240F1820EB }}
-
-      - name: Copy file to wwwroot
-        run: az webapp deployment source config-zip --resource-group <resource-group-name> --name aiimi-backend --src InterviewTestData.xlsx
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
