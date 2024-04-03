@@ -22,15 +22,15 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
-        {
+       // if (env.IsDevelopment())
+       // {
             app.UseDeveloperExceptionPage();
-        }
-        else
-        {
+       // }
+       // else
+       // {
             // Configure error handling middleware for non-development environments
-            app.UseExceptionHandler("/error");
-        }
+            //app.UseExceptionHandler("/error");
+       // }
 
         app.UseCors(options => options
             .SetIsOriginAllowed(origin => true)
