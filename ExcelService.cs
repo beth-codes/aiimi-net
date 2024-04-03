@@ -8,31 +8,33 @@ public class ExcelService
     private const int HeaderRow = 1;
     private const int DataStartRow = 2;
 
-    public List<Employee> ReadExcelFile(string filePath)
+   public List<Employee> ReadExcelFile(string filePath)
+ {
+    List<Employee> employees = new List<Employee>();
+    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+
+    using (var package = new ExcelPackage(new FileInfo(filePath)))
     {
-        List<Employee> employees = new List<Employee>();
+        
+        ExcelWorksheet worksheet = package.Workbook.Worksheets["in"]; 
 
-        using (var package = new ExcelPackage(new FileInfo(filePath)))
+        for (int row = DataStartRow; row <= worksheet.Dimension.End.Row; row++)
         {
-            ExcelWorksheet worksheet = package.Workbook.Worksheets[0]; // Assuming there's only one worksheet
-
-            for (int row = DataStartRow; row <= worksheet.Dimension.End.Row; row++)
-            {
-                Employee employee = new Employee();
-                
-                // Populate employee details
-                employee.Id = (row - DataStartRow + 1).ToString();
-                employee.FirstName = worksheet.Cells[row, 1].Value?.ToString();
-                employee.LastName = worksheet.Cells[row, 2].Value?.ToString();
-                employee.JobTitle = worksheet.Cells[row, 3].Value?.ToString();
-                employee.Phone = worksheet.Cells[row, 4].Value?.ToString();
-                employee.Email = worksheet.Cells[row, 5].Value?.ToString();
-                employees.Add(employee);
-            }
+            Employee employee = new Employee();
+            
+           
+            employee.Id = (row - DataStartRow + 1).ToString();
+            employee.FirstName = worksheet.Cells[row, 1].Value?.ToString();
+            employee.LastName = worksheet.Cells[row, 2].Value?.ToString();
+            employee.JobTitle = worksheet.Cells[row, 3].Value?.ToString();
+            employee.Phone = worksheet.Cells[row, 4].Value?.ToString();
+            employee.Email = worksheet.Cells[row, 5].Value?.ToString();
+            employees.Add(employee);
         }
-
-        return employees;
     }
+
+    return employees;
+ }
 
       public void AddEmployee(string filePath, Employee employee)
     {
