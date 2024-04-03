@@ -18,19 +18,20 @@ public class UsersController : ControllerBase
 
     // GET: api/users
     [HttpGet]
-  public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
+    public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
     {
+    
         _logger.LogInformation("Retrieving all users.");
         
-    if (File.Exists(filePath))
-    {
-        return "first path works";
-    }
-    
-    if(File.Exists(filePath))
-    {
-        return "2nd path exists";
-    }
+    if (File.Exists("../InterviewTestData.xlsx"))
+{
+    return "first path works";
+}
+
+if(File.Exists("InterviewTestData.xlsx"))
+{
+    return "2nd path exists";
+}
     var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
     
     return Ok(employees);
