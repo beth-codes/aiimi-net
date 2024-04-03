@@ -18,12 +18,12 @@ public class UsersController : ControllerBase
 
     // GET: api/users
     [HttpGet]
-    public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
-    {
-        _logger.LogInformation("Retrieving all users.");
-        var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
-        return Ok(employees);
-    }
+  public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
+{
+    _logger.LogInformation("Retrieving all users.");
+    var employees = _excelService.ReadExcelFile("InterviewTestData.xlsx");
+    return Ok(employees);
+}
 
     // GET: api/users/{id}
     [HttpGet("{id}")]
