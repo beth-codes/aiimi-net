@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using OfficeOpenXml;
 
@@ -12,8 +14,8 @@ public class UsersController : ControllerBase
 
     public UsersController(ILogger<UsersController> logger, ExcelService excelService)
     {
-        _logger = logger;
-        _excelService = excelService;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _excelService = excelService ?? throw new ArgumentNullException(nameof(excelService));
     }
 
     // GET: api/users
@@ -31,7 +33,7 @@ public class UsersController : ControllerBase
     {
         var employees = _excelService.ReadExcelFile("/Users/admin/Desktop/InterviewTestData.xlsx");
         var user = employees.FirstOrDefault(e => e.Id == id);
-        
+
         if (user == null)
         {
             return NotFound();
@@ -40,8 +42,13 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult CreateUser([FromBody] ExcelService.Employee employee)
+    public IActionResult CreateUser([FromBody] ExcelService.Employee? employee)
     {
+        if (employee == null)
+        {
+            return BadRequest("Employee data is null.");
+        }
+
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
@@ -54,7 +61,13 @@ public class UsersController : ControllerBase
             // Load the existing Excel file using EPPlus
             using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault(); 
+                ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
+
+                if (worksheet == null)
+                {
+                    _logger.LogError("Worksheet is null.");
+                    return StatusCode(500, "An error occurred while adding the new employee.");
+                }
 
                 // Find the next available row and write the new employee data to the Excel file
                 int newRow = worksheet.Dimension.End.Row + 0;
