@@ -35,7 +35,7 @@ public class UsersController : ControllerBase
      {
          return "first path works";
      }
-       if (System.IO.File.Exists("./InterviewTestData.xlsx"))
+       if (_excelService.ReadExcelFile("../InterviewTestData.xlsx"))
      {
          return "3nd path exists";
      }
