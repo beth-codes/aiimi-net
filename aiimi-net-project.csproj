@@ -5,10 +5,10 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>aiimi_net_project</RootNamespace>
-    <!-- <Nullable>disable</Nullable> -->
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="InterviewTestData.xlsx" />
     <PackageReference Include="EPPlus" Version="7.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
   </ItemGroup>
