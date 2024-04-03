@@ -19,9 +19,20 @@ public class UsersController : ControllerBase
     // GET: api/users
     [HttpGet]
   public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
-{
-    _logger.LogInformation("Retrieving all users.");
+    {
+        _logger.LogInformation("Retrieving all users.");
+        
+    if (File.Exists(filePath))
+    {
+        return "first path works";
+    }
+    
+    if(File.Exists(filePath))
+    {
+        return "2nd path exists";
+    }
     var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
+    
     return Ok(employees);
 }
 
@@ -29,7 +40,7 @@ public class UsersController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<ExcelService.Employee> GetUserById(string id)
     {
-        var employees = _excelService.ReadExcelFile("InterviewTestData.xlsx");
+        var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
         var user = employees.FirstOrDefault(e => e.Id == id);
         
         if (user == null)
