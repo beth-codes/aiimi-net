@@ -9,14 +9,22 @@ public class ExcelService
     private const int DataStartRow = 2;
 
    public List<Employee> ReadExcelFile(string filePath)
+<<<<<<< HEAD
  {
+=======
+{
+>>>>>>> 07da829 (new)
     List<Employee> employees = new List<Employee>();
     ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
     using (var package = new ExcelPackage(new FileInfo(filePath)))
     {
         
+<<<<<<< HEAD
         ExcelWorksheet worksheet = package.Workbook.Worksheets[0]; 
+=======
+        ExcelWorksheet worksheet = package.Workbook.Worksheets["in"]; 
+>>>>>>> 07da829 (new)
 
         for (int row = DataStartRow; row <= worksheet.Dimension.End.Row; row++)
         {
@@ -34,7 +42,11 @@ public class ExcelService
     }
 
     return employees;
+<<<<<<< HEAD
  }
+=======
+}
+>>>>>>> 07da829 (new)
 
       public void AddEmployee(string filePath, Employee employee)
     {

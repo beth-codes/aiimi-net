@@ -121,27 +121,12 @@ public class UsersController : ControllerBase
 
     // GET: api/users
     [HttpGet]
-    public ActionResult<string> GetUsers()
-    {
-        _logger.LogInformation("Retrieving all users.");
-        //var employees = _excelService.ReadExcelFile("InterviewTestData.xlsx");
-        if (System.IO.File.Exists("../InterviewTestData.xlsx"))
-        {
-            return "first path works";
-        }
-
-        if (System.IO.File.Exists("InterviewTestData.xlsx"))
-        {
-            return "2nd path exists";
-        }
-        var contentRoot = _config.GetValue<string>(WebHostDefaults.ContentRootKey);
-
-        if(System.IO.File.Exists($"{contentRoot}/InterviewTestData.xlsx")) 
-        {
-            return "content root";
-        }
-        return Ok("nothing");
-    }
+   public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
+{
+    _logger.LogInformation("Retrieving all users.");
+    var employees = _excelService.ReadExcelFile("InterviewTestData.xlsx");
+    return Ok(employees);
+}
 
     // GET: api/users/{id}
     [HttpGet("{id}")]

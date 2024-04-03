@@ -72,3 +72,10 @@
 /Users/admin/Desktop/aiimi-net-project/obj/Debug/net7.0/aiimi-net-project.pdb
 /Users/admin/Desktop/aiimi-net-project/obj/Debug/net7.0/aiimi-net-project.genruntimeconfig.cache
 /Users/admin/Desktop/aiimi-net-project/obj/Debug/net7.0/ref/aiimi-net-project.dll
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/angular.json
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/package-lock.json
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/package.json
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/proxy.conf.json
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/tsconfig.app.json
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/tsconfig.json
+/Users/admin/Desktop/aiimi-net-project/bin/Debug/net7.0/aiimi-angular/tsconfig.spec.json
