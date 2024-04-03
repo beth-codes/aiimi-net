@@ -72,6 +72,5 @@ public class UsersController : ControllerBase
             _logger.LogError("Error adding new employee: {0}", ex.Message);
             return StatusCode(500, "An error occurred while adding the new employee.");
         }
-        app.UseHttpsRedirection();
     }
 }
