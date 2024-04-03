@@ -11,7 +11,7 @@ public class UsersController : ControllerBase
     private readonly ExcelService _excelService;
 
     public UsersController(ILogger<UsersController> logger, ExcelService excelService)
-    {
+    { 
         _logger = logger;
         _excelService = excelService;
     }
@@ -34,6 +34,10 @@ public class UsersController : ControllerBase
      if (System.IO.File.Exists("../InterviewTestData.xlsx"))
      {
          return "first path works";
+     }
+       if (System.IO.File.Exists("./InterviewTestData.xlsx"))
+     {
+         return "3nd path exists";
      }
 
      if (System.IO.File.Exists("InterviewTestData.xlsx"))
