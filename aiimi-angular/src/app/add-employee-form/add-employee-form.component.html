@@ -1,0 +1,26 @@
+<form (submit)="submitForm()">
+  <div class="form-container">
+    <div class="employee-form-item first-name"> 
+       <input type="text" id="firstName" name="firstName" [(ngModel)]="newEmployee.firstName" placeholder="Susan" required>
+    </div> 
+ 
+    <div class="employee-form-item last-name"> 
+       <input type="text" id="lastName" name="lastName" [(ngModel)]="newEmployee.lastName" placeholder="Kim" required>
+    </div> 
+ 
+    <div class="employee-form-item job-title"> 
+       <input type="text" id="jobTitle" name="jobTitle" [(ngModel)]="newEmployee.jobTitle" placeholder="Developer" required>
+    </div> 
+     
+    <div class="employee-form-item phone"> 
+       <input type="number" id="phone" name="phone" [(ngModel)]="newEmployee.phone" placeholder="07775 357959" required [ngClass]="{ 'error-input': inputField && !newEmployee.phone }">
+    </div> 
+ 
+    <div class="employee-form-item email"> 
+       <input type="text" id="email" name="email" [(ngModel)]="newEmployee.email" placeholder="skim@text.com"  required [ngClass]="{ 'error-input': inputField && !newEmployee.email }">
+    </div> 
+  </div>
+   
+    <button type="submit">Submit</button>
+</form>
+
