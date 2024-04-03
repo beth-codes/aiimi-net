@@ -21,7 +21,7 @@ public class UsersController : ControllerBase
   public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
 {
     _logger.LogInformation("Retrieving all users.");
-    var employees = _excelService.ReadExcelFile("InterviewTestData.xlsx");
+    var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
     return Ok(employees);
 }
 
