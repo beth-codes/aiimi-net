@@ -21,7 +21,7 @@ public class UsersController : ControllerBase
     public ActionResult<IEnumerable<ExcelService.Employee>> GetUsers()
     {
         _logger.LogInformation("Retrieving all users.");
-        var employees = _excelService.ReadExcelFile("/Users/admin/Desktop/InterviewTestData.xlsx");
+        var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
         return Ok(employees);
     }
 
@@ -29,7 +29,7 @@ public class UsersController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<ExcelService.Employee> GetUserById(string id)
     {
-        var employees = _excelService.ReadExcelFile("/Users/admin/Desktop/InterviewTestData.xlsx");
+        var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
         var user = employees.FirstOrDefault(e => e.Id == id);
         
         if (user == null)
@@ -49,7 +49,7 @@ public class UsersController : ControllerBase
 
         try
         {
-            string filePath = "/Users/admin/Desktop/InterviewTestData.xlsx";
+            string filePath = "../InterviewTestData.xlsx";
             _excelService.AddEmployee(filePath, employee);
             // Load the existing Excel file using EPPlus
             using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))

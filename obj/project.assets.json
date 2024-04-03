@@ -1333,11 +1333,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/admin/Desktop/stackprob/aiimi-net-project/aiimi-net-project.csproj",
+      "projectUniqueName": "/Users/admin/Desktop/aiimi-net-project/aiimi-net-project.csproj",
       "projectName": "aiimi-net-project",
-      "projectPath": "/Users/admin/Desktop/stackprob/aiimi-net-project/aiimi-net-project.csproj",
+      "projectPath": "/Users/admin/Desktop/aiimi-net-project/aiimi-net-project.csproj",
       "packagesPath": "/Users/admin/.nuget/packages/",
-      "outputPath": "/Users/admin/Desktop/stackprob/aiimi-net-project/obj/",
+      "outputPath": "/Users/admin/Desktop/aiimi-net-project/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/admin/.nuget/NuGet/NuGet.Config"
