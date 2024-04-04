@@ -66,6 +66,7 @@ public class UsersController : ControllerBase
                 worksheet.Cells[newRow, 4].Value = employee.Phone;
                 worksheet.Cells[newRow, 5].Value = employee.Email;
                 package.Save();
+                package.Close();
             }
             return Ok(employee);
         }
