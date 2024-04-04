@@ -1,8 +1,0 @@
-{
-    "/api/*": {
-        "target": "https://aiimi-backend.azurewebsites.net/api/users/",
-        "secure": true,
-        "ChangeOrigin": true,
-        "logLevel": "debug"
-    }
-}
