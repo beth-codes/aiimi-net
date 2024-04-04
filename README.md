@@ -25,7 +25,7 @@ Welcome to the Employee Dashboard project. This dashboard provides a user-friend
 
 ## Contact
 
-- Website [Portfolio](https://elizabethadegunwa.netlify.app/})
-- GitHub [@beth-codes](https://github.com/beth-codes})
-- Stackoverflow [@beth](https://stackoverflow.com/users/18930619/beth})
-](https://github.com/beth-codes/aiimi-net)
+- Website [Portfolio](https://elizabethadegunwa.netlify.app/)
+- GitHub [@beth-codes](https://github.com/beth-codes)
+- Stackoverflow [@beth](https://stackoverflow.com/users/18930619/beth)
+
