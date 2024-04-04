@@ -27,19 +27,19 @@ public class UsersController : ControllerBase
     return Ok(employees);
 }
 
-    // GET: api/users/{id}
-    [HttpGet("{id}")]
-    public ActionResult<ExcelService.Employee> GetUserById(string id)
-    {
-        var employees = _excelService.ReadExcelFile("/InterviewTestData.xlsx");
-        var user = employees.FirstOrDefault(e => e.Id == id);
+    // // GET: api/users/{id}
+    // [HttpGet("{id}")]
+    // public ActionResult<ExcelService.Employee> GetUserById(string id)
+    // {
+    //     var employees = _excelService.ReadExcelFile("/InterviewTestData.xlsx");
+    //     var user = employees.FirstOrDefault(e => e.Id == id);
         
-        if (user == null)
-        {
-            return NotFound();
-        }
-        return Ok(user);
-    }
+    //     if (user == null)
+    //     {
+    //         return NotFound();
+    //     }
+    //     return Ok(user);
+    // }
 
     [HttpPost]
     public IActionResult CreateUser([FromBody] ExcelService.Employee employee)
