@@ -52,9 +52,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7361B9D0DD354E66805A97F8D4896486 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B5A49D629F2140B5806657082BF9CF77 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F0BFE399A6CB43E39390D4240F1820EB }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C1ED2FFA9C1F47628AE433F2319815A8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_42113527B50745BD800377AD8D3F2914 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_B8C248C707CB470C85F91AC622EB2F02 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -63,3 +63,4 @@ jobs:
           app-name: 'aiimi-backend'
           slot-name: 'Production'
           package: .
+          
