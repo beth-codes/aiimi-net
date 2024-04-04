@@ -11,7 +11,6 @@ public class Startup
     {
         services.AddControllers();
         services.AddSingleton<ExcelService>();
-
           // Configure CORS
         services.AddCors(options =>
         {
@@ -22,24 +21,13 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-       // if (env.IsDevelopment())
-       // {
-            app.UseDeveloperExceptionPage();
-       // }
-       // else
-       // {
-            // Configure error handling middleware for non-development environments
-            //app.UseExceptionHandler("/error");
-       // }
-
+        app.UseDeveloperExceptionPage();
         app.UseCors(options => options
             .SetIsOriginAllowed(origin => true)
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials());
-
         app.UseRouting();
-
 
        // Configure endpoint routing
         app.UseEndpoints(endpoints =>
