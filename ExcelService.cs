@@ -38,50 +38,41 @@ public class ExcelService
         FileInfo existingFile = new FileInfo(filePath);
 
         // Check if the file exists
-        if (!existingFile.Exists)
-        {
-            // If the file doesn't exist, create a new Excel package
-            using (ExcelPackage package = new ExcelPackage(existingFile))
-            {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Employees");
+        if (existingFile.Exists)
+        // {
+        //     // If the file doesn't exist, create a new Excel package
+        //     using (ExcelPackage package = new ExcelPackage(existingFile))
+        //     {
+        //         ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Employees");
 
-               // Add headers
-                worksheet.Cells[HeaderRow, 1].Value = "Id";
-                worksheet.Cells[HeaderRow, 2].Value = "FirstName";
-                worksheet.Cells[HeaderRow, 3].Value = "LastName";
-                worksheet.Cells[HeaderRow, 4].Value = "JobTitle";
-                worksheet.Cells[HeaderRow, 5].Value = "Phone";
-                worksheet.Cells[HeaderRow, 6].Value = "Email";
+        //        // Add headers
+        //         worksheet.Cells[HeaderRow, 1].Value = "Id";
+        //         worksheet.Cells[HeaderRow, 2].Value = "FirstName";
+        //         worksheet.Cells[HeaderRow, 3].Value = "LastName";
+        //         worksheet.Cells[HeaderRow, 4].Value = "JobTitle";
+        //         worksheet.Cells[HeaderRow, 5].Value = "Phone";
+        //         worksheet.Cells[HeaderRow, 6].Value = "Email";
 
-                // Add the new employee data
-                int newRow = worksheet.Dimension?.End.Row + 1 ?? DataStartRow;
-                worksheet.Cells[newRow, 1].Value = employee.Id;
-                worksheet.Cells[newRow, 1].Value = employee.FirstName;
-                worksheet.Cells[newRow, 2].Value = employee.LastName;
-                worksheet.Cells[newRow, 3].Value = employee.JobTitle;
-                worksheet.Cells[newRow, 4].Value = employee.Phone;
-                worksheet.Cells[newRow, 5].Value = employee.Email;
-                package.Save();
-            }
-        }
-        else
+        //         // Add the new employee data
+        //         int newRow = worksheet.Dimension?.End.Row + 1 ?? DataStartRow;
+        //         worksheet.Cells[newRow, 1].Value = employee.Id;
+        //         worksheet.Cells[newRow, 1].Value = employee.FirstName;
+        //         worksheet.Cells[newRow, 2].Value = employee.LastName;
+        //         worksheet.Cells[newRow, 3].Value = employee.JobTitle;
+        //         worksheet.Cells[newRow, 4].Value = employee.Phone;
+        //         worksheet.Cells[newRow, 5].Value = employee.Email;
+        //         package.Save();
+        //     }
+        // }
+        // elsE
         {
             // If the file exists, open the existing Excel package
             using (ExcelPackage package = new ExcelPackage(existingFile))
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
 
-                // Add headers
-                worksheet.Cells[HeaderRow, 1].Value = "Id";
-                worksheet.Cells[HeaderRow, 2].Value = "FirstName";
-                worksheet.Cells[HeaderRow, 3].Value = "LastName";
-                worksheet.Cells[HeaderRow, 4].Value = "JobTitle";
-                worksheet.Cells[HeaderRow, 5].Value = "Phone";
-                worksheet.Cells[HeaderRow, 6].Value = "Email";
-
                 // Add the new employee data
                 int newRow = worksheet.Dimension?.End.Row + 1 ?? DataStartRow;
-                worksheet.Cells[newRow, 1].Value = employee.Id;
                 worksheet.Cells[newRow, 1].Value = employee.FirstName;
                 worksheet.Cells[newRow, 2].Value = employee.LastName;
                 worksheet.Cells[newRow, 3].Value = employee.JobTitle;
@@ -89,7 +80,7 @@ public class ExcelService
                 worksheet.Cells[newRow, 5].Value = employee.Email;
                 package.Save();
             }
-        }
+        // }
     }
 
     public class Employee
