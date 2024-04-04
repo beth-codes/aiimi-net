@@ -47,12 +47,12 @@ public class UsersController : ControllerBase
 
                 // Find the next available row and write the new employee data to the Excel file
                 int newRow = worksheet.Dimension.End.Row + 0;
-                worksheet.Cells[newRow, 1].Value = employee.Id;
-                worksheet.Cells[newRow, 2].Value = employee.FirstName;
-                worksheet.Cells[newRow, 3].Value = employee.LastName;
-                worksheet.Cells[newRow, 4].Value = employee.JobTitle;
-                worksheet.Cells[newRow, 5].Value = employee.Phone;
-                worksheet.Cells[newRow, 6].Value = employee.Email;
+                // worksheet.Cells[newRow, 1].Value = employee.Id;
+                worksheet.Cells[newRow, 1].Value = employee.FirstName;
+                worksheet.Cells[newRow, 2].Value = employee.LastName;
+                worksheet.Cells[newRow, 3].Value = employee.JobTitle;
+                worksheet.Cells[newRow, 4].Value = employee.Phone;
+                worksheet.Cells[newRow, 5].Value = employee.Email;
                 package.Save();
             }
             return Ok(employee);
