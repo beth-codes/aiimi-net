@@ -27,7 +27,6 @@ public class UsersController : ControllerBase
         return Ok(employees);
      }
     
-
     [HttpPost]
     public IActionResult CreateUser([FromBody] ExcelService.Employee employee)
     {
@@ -47,7 +46,6 @@ public class UsersController : ControllerBase
 
                 // Find the next available row and write the new employee data to the Excel file
                 int newRow = worksheet.Dimension.End.Row + 0;
-                // worksheet.Cells[newRow, 1].Value = employee.Id;
                 worksheet.Cells[newRow, 1].Value = employee.FirstName;
                 worksheet.Cells[newRow, 2].Value = employee.LastName;
                 worksheet.Cells[newRow, 3].Value = employee.JobTitle;
