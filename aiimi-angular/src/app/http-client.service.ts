@@ -8,7 +8,7 @@ import { Employee } from './employee';
 })
 export class HttpClientService {
 
-  private baseUrl = 'http://localhost:5126/api/users/';
+  private baseUrl = 'https://aiimi-backend.azurewebsites.net/api/users/';
 
   constructor(private http: HttpClient) { }
 
