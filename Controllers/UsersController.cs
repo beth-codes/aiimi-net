@@ -31,7 +31,7 @@ public class UsersController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<ExcelService.Employee> GetUserById(string id)
     {
-        var employees = _excelService.ReadExcelFile("../InterviewTestData.xlsx");
+        var employees = _excelService.ReadExcelFile("/InterviewTestData.xlsx");
         var user = employees.FirstOrDefault(e => e.Id == id);
         
         if (user == null)
@@ -51,7 +51,7 @@ public class UsersController : ControllerBase
 
         try
         {
-            string filePath = "../InterviewTestData.xlsx";
+            string filePath = "/InterviewTestData.xlsx";
             _excelService.AddEmployee(filePath, employee);
             // Load the existing Excel file using EPPlus
             using (ExcelPackage package = new ExcelPackage(new FileInfo(filePath)))
