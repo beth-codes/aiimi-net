@@ -71,6 +71,14 @@ public class ExcelService
             {
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.FirstOrDefault();
 
+                // Add headers
+                worksheet.Cells[HeaderRow, 1].Value = "Id";
+                worksheet.Cells[HeaderRow, 2].Value = "FirstName";
+                worksheet.Cells[HeaderRow, 3].Value = "LastName";
+                worksheet.Cells[HeaderRow, 4].Value = "JobTitle";
+                worksheet.Cells[HeaderRow, 5].Value = "Phone";
+                worksheet.Cells[HeaderRow, 6].Value = "Email";
+
                 // Add the new employee data
                 int newRow = worksheet.Dimension?.End.Row + 1 ?? DataStartRow;
                 worksheet.Cells[newRow, 1].Value = employee.Id;
